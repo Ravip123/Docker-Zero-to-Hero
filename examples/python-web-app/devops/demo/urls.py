@@ -1,7 +1,11 @@
+from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 
-from . import views
+def home(request):
+    return HttpResponse("Hello, Docker + Django 🚀")
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('admin/', admin.site.urls),
+    path('', home),   # 👈 this fixes "/"
 ]
